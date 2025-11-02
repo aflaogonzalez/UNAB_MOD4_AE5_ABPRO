@@ -16,5 +16,13 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.header_container, Header.newInstance())
+                .replace(R.id.home_container, Home.newInstance())
+                .replace(R.id.footer_container, Footer.newInstance())
+                .commit()
+        }
     }
 }
