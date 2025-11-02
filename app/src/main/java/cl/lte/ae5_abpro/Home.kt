@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import cl.lte.ae5_abpro.databinding.FragmentHomeBinding
 
@@ -29,6 +30,14 @@ class Home : Fragment() {
 
         val searchTerm = args.searchTerm
         binding.resultTextView.text = "Término buscado: $searchTerm"
+
+        binding.newSearchButton.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
+        binding.closeAppButton.setOnClickListener {
+            requireActivity().finish()
+        }
     }
 
     override fun onDestroyView() {

@@ -32,6 +32,11 @@ class Header : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        binding.searchEditText.text.clear()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
